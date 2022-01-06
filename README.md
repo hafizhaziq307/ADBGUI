@@ -2,14 +2,14 @@
 ABDGUI (ADB stands for Android Debugging Bridge) is a tool to remove pre-installed apps in your android phone.
 
 ## Stack
-- [Svelte](https://vuejs.org/)
+- [Svelte](https://svelte.dev/)
 - [Tailwind](https://tailwindcss.com/)
 - [Tauri](https://tauri.studio/en/)
 - and many others!
 
 
 ### Features
-- [x] Display Packages got from Android phone
+- [x] Display Packages retrieved from Android phone
 - [x] Search Packages
 - [ ] Delete Packages
 
