@@ -28,7 +28,7 @@ fn get_packages() -> Vec<String> {
 }
 
 #[command]
-fn delete_packages(package: &str) -> () {
+fn delete_package(package: &str) -> () {
   Command::new("sh")
     .arg("-c")
     .arg("adb shell pm uninstall --user 0 ".to_owned() + package)
@@ -38,7 +38,7 @@ fn delete_packages(package: &str) -> () {
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![get_packages, delete_packages])
+    .invoke_handler(tauri::generate_handler![get_packages, delete_package])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }

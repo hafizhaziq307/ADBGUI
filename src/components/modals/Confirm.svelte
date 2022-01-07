@@ -1,7 +1,14 @@
 <script>
     import Trash from '../icons/Trash.svelte';
+    import { fade } from 'svelte/transition';
+
     export let packageName;
+    export let updateDisplayedPackages;
+    export let deletePackage;
+
     let open = false;
+    let disabled = false;
+    let p = null;
 
     const openModal = () => {
         open = true;
@@ -10,6 +17,11 @@
     const closeModal = () => {
         open = false;
     };
+
+    function updateModal() {
+        disabled = true;
+        open = false;
+    }
 </script>
 
 <button
@@ -19,6 +31,7 @@
 
 {#if open}
     <div
+        transition:fade={{ duration: 150 }}
         class="fixed top-0 left-0 z-40 flex items-center justify-center w-screen h-screen bg-black/40">
         <div
             class="min-h-screen flex justify-center items-center text-gray-100">
@@ -46,12 +59,15 @@
                         class="w-1/2 px-4 py-3 text-center bg-gray-800 hover:bg-gray-700 font-bold rounded text-sm"
                         >Cancel</button>
                     <button
-                        class="w-1/2 px-4 py-3 text-center bg-violet-600 rounded hover:bg-violet-700 hover:text-white font-bold text-sm"
-                        >Delete</button>
+                        on:click={updateModal}
+                        on:click={deletePackage}
+                        on:click={updateDisplayedPackages}
+                        {disabled}
+                        class="w-1/2 px-4 py-3 text-center bg-violet-600 rounded hover:bg-violet-700 hover:text-white font-bold text-sm">
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- <div class="animate-spin rounded-full h-6 w-6 border-x-2 border-white mx-auto" /> -->
 {/if}
