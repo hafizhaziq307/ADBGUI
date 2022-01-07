@@ -1,6 +1,8 @@
 # ADBGUI
 ABDGUI (ADB stands for Android Debugging Bridge) is a tool for removing pre-installed apps in your android phone. **PLEASE TAKE NOTE** that I'll not be responsible if you accidentally remove an **IMPORTANT** package that causes your phone to break.
 
+<img src="./res/output.png" alt="output-ADBGUI" >
+
 ### Requirement
 - PC --- ADB installed
 - Phone --- USB Debugging is On
