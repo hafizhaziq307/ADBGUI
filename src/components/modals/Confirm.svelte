@@ -7,8 +7,6 @@
     export let deletePackage;
 
     let open = false;
-    let disabled = false;
-    let p = null;
 
     const openModal = () => {
         open = true;
@@ -17,11 +15,6 @@
     const closeModal = () => {
         open = false;
     };
-
-    function updateModal() {
-        disabled = true;
-        open = false;
-    }
 </script>
 
 <button
@@ -59,10 +52,9 @@
                         class="w-1/2 px-4 py-3 text-center bg-gray-800 hover:bg-gray-700 font-bold rounded text-sm"
                         >Cancel</button>
                     <button
-                        on:click={updateModal}
+                        on:click={closeModal}
                         on:click={deletePackage}
                         on:click={updateDisplayedPackages}
-                        {disabled}
                         class="w-1/2 px-4 py-3 text-center bg-violet-600 rounded hover:bg-violet-700 hover:text-white font-bold text-sm">
                         Delete
                     </button>

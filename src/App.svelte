@@ -6,8 +6,8 @@
 	import { onMount } from 'svelte';
 
 	// init variable
-	let search = '';
-	let promise = null;
+	let search = '',
+		promise = null;
 
 	onMount(async () => {
 		promise = await __TAURI__.invoke('get_packages');
